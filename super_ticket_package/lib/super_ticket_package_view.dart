@@ -8,11 +8,26 @@ class SuperTicket extends StatelessWidget {
   final int itemCount;
   final Color arcColor;
   final String ticketText;
+  final String firstIconsText;
+  final String secondIconsText;
   final String ticketTitleText;
+  final String buttonText;
   final List<Color> colors;
-  final List<String> imageList; // Yeni parametre: resim URL listesi
+  final double ticketHeight;
+  final IconData firstIcon;
+  final IconData secondIcon;
+  final IconData buttonIcon;
   final TextStyle ticketTextStyle;
   final TextStyle ticketTitleTextStyle;
+  final TextStyle firstIconsTextStyle;
+  final TextStyle secondIconsTextStyle;
+  final TextStyle buttonTextStyle;
+  final VoidCallback onPressed;
+  final Color buttonBg;
+  final Color buttonBorderColor;
+  final Color buttonIconColor;
+  final Color firstIconColor;
+  final Color secondIconColor;
 
   const SuperTicket({
     Key? key,
@@ -20,8 +35,20 @@ class SuperTicket extends StatelessWidget {
     required this.arcColor,
     required this.ticketText,
     required this.ticketTitleText,
+    required this.buttonText,
+    required this.firstIcon,
+    required this.secondIcon,
+    required this.buttonIcon,
+    required this.firstIconsText,
+    required this.secondIconsText,
+    required this.onPressed,
     required this.colors,
-    required this.imageList, // Yeni parametre: resim URL listesi
+    required this.buttonBorderColor,
+    this.buttonIconColor = Colors.white,
+    this.firstIconColor = Colors.black,
+    this.secondIconColor = Colors.black,
+    this.ticketHeight = 175,
+    this.buttonTextStyle = const TextStyle(fontSize: 12, color: Colors.white),
     this.ticketTextStyle = const TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.bold,
@@ -32,6 +59,13 @@ class SuperTicket extends StatelessWidget {
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
+    this.firstIconsTextStyle = const TextStyle(
+      fontSize: 12,
+    ),
+    this.secondIconsTextStyle = const TextStyle(
+      fontSize: 12,
+    ),
+    required this.buttonBg,
   }) : super(key: key);
 
   @override
@@ -40,10 +74,9 @@ class SuperTicket extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       itemBuilder: (context, index) {
         Color color = colors[index % colors.length];
-        String imageUrl =
-            imageList[index % imageList.length]; // Resim URL'sini al
         return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.25,
+          //ticket's height
+          height: ticketHeight,
           width: double.infinity,
           child: Stack(
             children: [
@@ -84,34 +117,34 @@ class SuperTicket extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        const Row(
+                                        Row(
                                           children: [
-                                            Icon(Icons.calendar_today),
-                                            SizedBox(
+                                            Icon(
+                                              firstIcon,
+                                              color: firstIconColor,
+                                            ),
+                                            const SizedBox(
                                               width: 5,
                                             ),
                                             Expanded(
-                                              child: Text(
-                                                '00 month 2023 00:00',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                ),
-                                              ),
+                                              child: Text(firstIconsText,
+                                                  style: firstIconsTextStyle),
                                             )
                                           ],
                                         ),
-                                        const Row(
+                                        Row(
                                           children: [
-                                            Icon(Icons.location_on_outlined),
-                                            SizedBox(
+                                            Icon(
+                                              secondIcon,
+                                              color: secondIconColor,
+                                            ),
+                                            const SizedBox(
                                               width: 5,
                                             ),
                                             Expanded(
                                               child: Text(
-                                                'Destination venue',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                ),
+                                                secondIconsText,
+                                                style: secondIconsTextStyle,
                                               ),
                                             )
                                           ],
@@ -122,19 +155,17 @@ class SuperTicket extends StatelessWidget {
                                         ElevatedButton.icon(
                                             onPressed: () {},
                                             style: ElevatedButton.styleFrom(
-                                                backgroundColor: Colors.white,
-                                                shape: const StadiumBorder(
+                                                backgroundColor: buttonBg,
+                                                shape: StadiumBorder(
                                                   side: BorderSide(
                                                       width: 1,
-                                                      color: Colors.blue),
+                                                      color: buttonBorderColor),
                                                 )),
-                                            icon:
-                                                const Icon(Icons.check_circle),
+                                            icon: Icon(buttonIcon,
+                                                color: buttonIconColor),
                                             label: Text(
-                                              'Buy Tickets'.toUpperCase(),
-                                              style: const TextStyle(
-                                                fontSize: 12,
-                                              ),
+                                              buttonText,
+                                              style: buttonTextStyle,
                                             ))
                                       ]),
                                 ),
@@ -147,12 +178,19 @@ class SuperTicket extends StatelessWidget {
               ),
               CustomPaintWidget(
                 painter: SideCutsDesign(arcColor: arcColor),
+                height: ticketHeight,
               ),
               CustomPaintWidget(
-                painter: DottedInitialPath(dotColor: arcColor),
+                painter: DottedInitialPath(
+                  dotColor: arcColor,
+                ),
+                height: ticketHeight,
               ),
               CustomPaintWidget(
-                painter: DottedMiddlePath(dotColor: arcColor),
+                painter: DottedMiddlePath(
+                  dotColor: arcColor,
+                ),
+                height: ticketHeight,
               ),
             ],
           ),
