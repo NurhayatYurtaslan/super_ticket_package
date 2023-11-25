@@ -11,8 +11,8 @@
 
 
 <div> 
-<img width="300" height="600" src="https://github.com/NurhayatYurtaslan/super_ticket_package/blob/main/images/stp_one.png">
-<img width="300" height="600" src="https://github.com/NurhayatYurtaslan/super_ticket_package/blob/main/images/stp_two.png">
+<img width="300" height="600" src="https://github.com/NurhayatYurtaslan/super_ticket_package/blob/main/images/stp_one.png?raw=true">
+<img width="300" height="600" src="https://github.com/NurhayatYurtaslan/super_ticket_package/blob/main/images/stp_two.png?raw=true">
 
 </div>
 <p>
