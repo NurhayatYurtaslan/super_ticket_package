@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:super_ticket_package/super_ticket_package_view.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key});
+  const HomeView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,28 +20,29 @@ class HomeView extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: const SuperTicket(
+      body: SuperTicket(
         itemCount: 4, // 3 resim
-        arcColor: Color.fromARGB(255, 133, 74, 217),
+        arcColor: const Color.fromARGB(255, 133, 74, 217),
         ticketText: 'Ticket Text',
         colors: [
-          Color.fromARGB(255, 227, 127, 221),
-          Color.fromARGB(255, 242, 226, 5),
-          Color.fromARGB(255, 242, 213, 229),
+          const Color.fromARGB(255, 227, 127, 221),
+          const Color.fromARGB(255, 242, 226, 5),
+          const Color.fromARGB(255, 242, 213, 229),
         ],
-        ticketTextStyle: TextStyle(
+        ticketTextStyle: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
           color: Color.fromARGB(255, 70, 84, 166),
         ),
         ticketTitleText: 'Ticket Title',
-        imageList: [
-          'https://picsum.photos/200/300?random=1,'
-              'https://picsum.photos/200/300?random=2,'
-              'https://picsum.photos/200/300?random=3,'
-              'https://picsum.photos/200/300?random=4,'
-        ],
-       
+        firstIcon: Icons.access_alarm_outlined,
+        firstIconsText: "First Icon's Text",
+        ticketHeight: MediaQuery.of(context).size.height * 0.25,
+        secondIcon: Icons.location_on_outlined,
+        secondIconsText: "Second Icon's Text ", onPressed: () {},
+        buttonBg: const Color.fromARGB(255, 227, 127, 221),
+        buttonBorderColor: const Color.fromARGB(255, 133, 74, 217),
+        buttonText: 'Button Text'.toUpperCase(), buttonIcon: Icons.check_circle,
       ),
     );
   }
