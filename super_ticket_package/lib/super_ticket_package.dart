@@ -1,7 +1,4 @@
 library super_ticket_package;
 
 /// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:super_ticket_package/super_ticket_package.dart';

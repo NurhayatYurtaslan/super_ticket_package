@@ -1,0 +1,28 @@
+class titleTextWidget extends StatelessWidget with SuperTicketPackage {
+  const titleTextWidget({
+    super.key,
+    required this.color,
+    required this.ticketText,
+    required this.ticketTextStyle,
+  });
+
+  final Color color;
+  final String ticketText;
+  final TextStyle ticketTextStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        color: color, // Doğru renk kullanımı
+        child: Center(
+          child: RotatedBox(
+            quarterTurns: 3,
+            child: Text('$ticketText #${index + 1}',
+                style: ticketTextStyle),
+          ),
+        ),
+      ),
+    );
+  }
+}
