@@ -1,11 +1,12 @@
 import 'package:flutter/widgets.dart';
 
 class CustomPaintWidget extends StatelessWidget {
+  final double height;
   final CustomPainter painter;
 
   const CustomPaintWidget({
     Key? key,
-    required this.painter,
+    required this.painter, required this.height,
   }) : super(key: key);
 
   @override
@@ -13,7 +14,7 @@ class CustomPaintWidget extends StatelessWidget {
     return CustomPaint(
       painter: painter,
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.25,
+        height: height,
         width: double.infinity,
       ),
     );
