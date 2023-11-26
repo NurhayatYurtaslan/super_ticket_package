@@ -1,6 +1,6 @@
 name: super_ticket_package
-description: The Super Ticket Package enhances Flutter app interfaces by providing a customizable and visually appealing solution for presenting event tickets. With dynamic features like color variations and sleek designs, developers can effortlessly elevate their UI, offering users an engaging and modern ticket viewing experience.
-version: 0.0.2
+description: The Super Ticket Package enhances Flutter app interfaces with customizable and visually appealing event ticket presentations, offering users an engaging and modern ticket viewing experience.
+version: 0.0.3
 homepage: https://github.com/NurhayatYurtaslan/super_ticket_package
 documentation: https://github.com/NurhayatYurtaslan/super_ticket_package/blob/main/README.md
 
